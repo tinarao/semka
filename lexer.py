@@ -14,7 +14,7 @@ class Lexer:
         self.pos += 1;
         self.current_char = self.text[self.pos] if len(self.text) > self.pos else None;
     
-    def create_numeric_token(self):
+    def create_numeric_token(self) -> Token:
         num_str = ''
         dots_count = 0
         
@@ -27,9 +27,8 @@ class Lexer:
                 num_str += '.'
             else:
                 num_str += self.current_char
-                
             self.advance()
-        
+            
         if dots_count == 0:
             return Token(TOKEN_INT, int(num_str))
         else:
@@ -48,45 +47,31 @@ class Lexer:
             elif self.current_char == '+':
                 tokens.append(Token(TOKEN_PLUS))
                 self.advance()
-                
                 continue
-
             if self.current_char == '-':
                 tokens.append(Token(TOKEN_MINUS))
                 self.advance()
-                
                 continue
-
             if self.current_char == '/':
                 tokens.append(Token(TOKEN_DIVIDE))
                 self.advance()
-                
                 continue
-
             if self.current_char == "*":
                 tokens.append(Token(TOKEN_MULTIPLY))
                 self.advance()
-                
                 continue
-
             elif self.current_char == "(":
                 tokens.append(Token(TOKEN_LEFTPAREN))
                 self.advance()
-                
                 continue
-
             elif self.current_char == ")":
                 tokens.append(Token(TOKEN_RIGHTPAREN))
                 self.advance()
-                
                 continue
-
-            elif self.current_char in NUMBERS:
-                tokens.append(self.create_numeric_token())
-                self.advance()
-                
+            elif self.current_char.isdigit():
+                token = self.create_numeric_token()
+                tokens.append(token)
                 continue
-
             else:
                 ch = self.current_char
                 self.advance()
