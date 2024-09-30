@@ -20,7 +20,7 @@ First off, write a .sem code. I don't even understand yet what it should look li
 Then, clone this repo:
 
 ```
-git clone https://github.com/tinarao/skala.git
+git clone https://github.com/tinarao/semka.git
 ```
 
 ### 3: Run!
