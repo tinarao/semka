@@ -1,0 +1,10 @@
+TOKEN_INT = "int"
+TOKEN_FLOAT = "float"
+TOKEN_PLUS = "plus"
+TOKEN_MINUS = "minus"
+TOKEN_DIVIDE = "divide"
+TOKEN_MULTIPLY = "multiply"
+TOKEN_LEFTPAREN = "lparen"
+TOKEN_RIGHTPAREN = "rparen"
+
+NUMBERS = '0123456789'
